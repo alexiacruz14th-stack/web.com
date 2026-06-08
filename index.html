@@ -1,0 +1,132 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nissan - Compra de Autos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="brand-label">Nissan</p>
+        <h1>Compra tu auto</h1>
+      </div>
+      <div class="tools">
+        <label class="search">
+          <span>Buscar</span>
+          <input id="searchInput" type="search" placeholder="Modelo, tipo o precio" />
+        </label>
+        <button id="ordersButton" class="ghost-button" type="button">Compras</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="catalog-head" aria-label="Resumen del catalogo">
+        <p><strong id="carCount">30</strong> autos disponibles</p>
+        <select id="typeFilter" aria-label="Filtrar por tipo">
+          <option value="todos">Todos los tipos</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="Pickup">Pickup</option>
+          <option value="Deportivo">Deportivo</option>
+          <option value="Electrico">Electrico</option>
+          <option value="Van">Van</option>
+        </select>
+      </section>
+
+      <section id="carGrid" class="car-grid" aria-label="Catalogo de autos Nissan"></section>
+    </main>
+
+    <dialog id="carDialog" class="dialog">
+      <article class="detail">
+        <button id="closeDialog" class="icon-button close" type="button" aria-label="Cerrar">x</button>
+        <div class="detail-media">
+          <img id="detailImage" alt="" />
+        </div>
+        <div class="detail-info">
+          <p id="detailType" class="tag"></p>
+          <h2 id="detailTitle"></h2>
+          <p id="detailDescription" class="description"></p>
+          <dl class="specs">
+            <div>
+              <dt>Precio</dt>
+              <dd id="detailPrice"></dd>
+            </div>
+            <div>
+              <dt>Motor</dt>
+              <dd id="detailEngine"></dd>
+            </div>
+            <div>
+              <dt>Rendimiento</dt>
+              <dd id="detailFuel"></dd>
+            </div>
+            <div>
+              <dt>Transmision</dt>
+              <dd id="detailTransmission"></dd>
+            </div>
+            <div>
+              <dt>Asientos</dt>
+              <dd id="detailSeats"></dd>
+            </div>
+            <div>
+              <dt>Color destacado</dt>
+              <dd id="detailColor"></dd>
+            </div>
+          </dl>
+          <div>
+            <h3>Equipamiento</h3>
+            <ul id="detailFeatures" class="features"></ul>
+          </div>
+          <div class="actions">
+            <button id="quoteButton" class="secondary-button" type="button">Cotizar</button>
+            <button id="buyButton" class="primary-button" type="button">Comprar</button>
+          </div>
+        </div>
+      </article>
+    </dialog>
+
+    <dialog id="checkoutDialog" class="dialog">
+      <form id="checkoutForm" class="checkout" method="dialog">
+        <button id="closeCheckout" class="icon-button close" type="button" aria-label="Cerrar">x</button>
+        <h2>Finalizar compra</h2>
+        <p id="checkoutCar"></p>
+        <label>
+          Nombre completo
+          <input name="name" required minlength="3" placeholder="Tu nombre" />
+        </label>
+        <label>
+          Correo electronico
+          <input name="email" type="email" required placeholder="correo@ejemplo.com" />
+        </label>
+        <label>
+          Telefono
+          <input name="phone" required minlength="8" placeholder="662 000 0000" />
+        </label>
+        <label>
+          Metodo de pago
+          <select name="payment" required>
+            <option value="Financiamiento">Financiamiento</option>
+            <option value="Pago de contado">Pago de contado</option>
+            <option value="Apartado">Apartado</option>
+          </select>
+        </label>
+        <button class="primary-button" type="submit">Confirmar compra</button>
+      </form>
+    </dialog>
+
+    <dialog id="ordersDialog" class="dialog">
+      <section class="orders">
+        <button id="closeOrders" class="icon-button close" type="button" aria-label="Cerrar">x</button>
+        <h2>Compras guardadas</h2>
+        <div id="ordersList" class="orders-list"></div>
+      </section>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="basedatos.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compras Nissan</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="brand-label">Nissan</p>
+        <h1>Compras guardadas</h1>
+      </div>
+      <div class="tools">
+        <a class="ghost-link" href="index.html">Catalogo</a>
+        <button id="downloadCsv" class="primary-button" type="button">Descargar CSV</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="data-panel">
+        <div class="catalog-head">
+          <p><strong id="ordersCount">0</strong> registros en la base de datos</p>
+          <button id="refreshButton" class="secondary-button" type="button">Actualizar</button>
+        </div>
+        <div class="table-wrap">
+          <table class="orders-table">
+            <thead>
+              <tr>
+                <th>Folio</th>
+                <th>Cliente</th>
+                <th>Auto</th>
+                <th>Operacion</th>
+                <th>Pago</th>
+                <th>Total</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTableBody"></tbody>
+          </table>
+        </div>
+        <p id="ordersMessage" class="empty hidden"></p>
+      </section>
+    </main>
+
+    <script src="compras.js"></script>
+  </body>
+</html>
